@@ -20,6 +20,9 @@
     <button onclick="cambiarFondo()">Cambiar Fondo</button>
     <button onclick="regresarFondo()">Regresar Fondo</button>
     <font face="Montserrat">
+      <h2 id="h2" style="display: none">HOLA MUNDO</h2>
+    <button onclick="mostrarTexto()" id="b_principal">Pulsa aqui</button>
+    <button onclick="esconderTexto()" style="display: none" id="b_esconder">Esconder</button>
       <table border="2px" width="900px">
         <tr align="justify" height="50px">
           <th width="200px" bgcolor="white">Año de Publicacion:</th>
@@ -52,7 +55,9 @@
             <p id="texto">"Un gran poder, conlleva una gran responsabilidad"</p>
           </th>
           <th>
-            <button  onclick="cambiarTexto()">Dale click  Aqui no es un virus</button>
+            <button onclick="cambiarTexto()">
+              Dale click Aqui no es un virus
+            </button>
           </th>
         </tr>
         <tr align="center" bgcolor="white">
@@ -63,7 +68,16 @@
             <img src="images/Andru.jpg" height="200px" width="400px" />
           </td>
           <td>
-            <img src="images/tom.jpg" height="200px" width="500px" />
+            <img src="images/tom.jpg" height="200px" width="500px" id="imagen"/>
+          </td>
+        </tr>
+        <tr align="center">
+          <td colspan="2" bgcolor="white">
+            
+          </td>
+          <td bgcolor="wg">
+            <button onclick="cambiarImagen()">Cambiar Imagen</button>
+            <button onclick="regresarImagen()">Regresar Imagen</button>
           </td>
         </tr>
         <tr align="center" height="200px">
@@ -91,33 +105,72 @@
             ></iframe>
           </th>
           <td>
-            <img src="images/calificacion_nwh.jpg" height="230px"
+            <img
+              src="images/calificacion_nwh.jpg"
+              height="230px"
               width="500px"
             />
           </td>
         </tr>
       </table>
+      <button onclick="nuevoTexto()"> --ABRE AQUI--</button>
+      <div id="miDiv">
+        
+      </div>
     </font>
     <script>
       function cambiarFondo() {
-            var body = document.getElementsByTagName("body")[0];
-            var titulo= document.getElementById("titulo");
-            body.style.backgroundImage = "url('images/fondo2.png')";
-            titulo.style.color="#FFF000";
+        var body = document.getElementsByTagName("body")[0];
+        var titulo = document.getElementById("titulo");
+        body.style.backgroundImage = "url('images/fondo2.png')";
+        titulo.style.color = "#FFF000";
+      }
+      function regresarFondo() {
+        var body = document.getElementsByTagName("body")[0];
+        var titulo = document.getElementById("titulo");
+        body.style.backgroundImage = "url('images/spider_man_fondo.jpg')";
+        titulo.style.color = "#03006A";
+      }
 
-        }
-        function regresarFondo() {
-            var body = document.getElementsByTagName("body")[0];
-            var titulo= document.getElementById("titulo");
-            body.style.backgroundImage = "url('images/spider_man_fondo.jpg')";
-            titulo.style.color="#03006A";
+      function cambiarTexto() {
+        var cambio = document.getElementById("texto");
+        cambio.innerHTML =
+          ' "Lo más difícil de este trabajo es que no siempre se puede salvar a todos." ';
+      }
 
-        }
+      function cambiarImagen() {
 
-        function cambiarTexto(){
-          var cambio= document.getElementById("texto");
-          cambio.innerHTML=' "Lo más difícil de este trabajo es que no siempre se puede salvar a todos." ';
-        }
+        var imagen = document.getElementById("imagen");
+        imagen.src="images/900.jfif";
+      }
+      function regresarImagen() {
+        var imagen = document.getElementById("imagen");
+        imagen.src="images/tom.jpg";
+      }
+      function mostrarTexto() {
+        var texto = document.getElementById("h2");
+        var boton = document.getElementById("b_esconder");
+        var boton2 = document.getElementById("b_principal");
+        texto.style.display= "block";
+        boton.style.display="block";
+        boton2.style.display="none";
+      }
+
+      function esconderTexto() {
+        var texto = document.getElementById("h2");
+        var boton = document.getElementById("b_esconder");
+        var boton2 = document.getElementById("b_principal");
+        texto.style.display= "none";
+        boton.style.display="none";
+        boton2.style.display="block";
+      }
+  
+    </script>
+    <script>
+      function nuevoTexto(){
+        var contenedor = document.getElementById("miDiv");
+        contenedor.innerHTML="<h1>"+"Este texto no lo escribio Cristobal Serrano, lo escribio Java Script"+"</h1>";
+      }
     </script>
   </body>
 </html>
