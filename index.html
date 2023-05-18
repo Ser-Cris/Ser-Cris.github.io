@@ -48,6 +48,14 @@
           </td>
         </tr>
         <tr align="center" bgcolor="white">
+          <th colspan="2">
+            <p id="texto">"Un gran poder, conlleva una gran responsabilidad"</p>
+          </th>
+          <th>
+            <button  onclick="cambiarTexto()">Dale click  Aqui no es un virus</button>
+          </th>
+        </tr>
+        <tr align="center" bgcolor="white">
           <th colspan="3">Imágenes</th>
         </tr>
         <tr align="center" height="200px">
@@ -104,6 +112,11 @@
             body.style.backgroundImage = "url('images/spider_man_fondo.jpg')";
             titulo.style.color="#03006A";
 
+        }
+
+        function cambiarTexto(){
+          var cambio= document.getElementById("texto");
+          cambio.innerHTML=' "Lo más difícil de este trabajo es que no siempre se puede salvar a todos." ';
         }
     </script>
   </body>
