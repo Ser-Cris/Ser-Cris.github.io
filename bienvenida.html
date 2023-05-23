@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Bienvenido</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <h1 id="Nombres"></h1>
+    <h2 id="Apellidos"></h2>
+    <a href="" id="Email">Tu correo</a><br>
+    <a href="" id="Telefono">Tu telefono</a>
+    <p id="contra"></p>
+    <p id="anios"></p>
+</body>
+</html>
+
+<script>
+    getParameter=(key)=>{
+        address= window.location.search;
+
+        parameterList = new URLSearchParams(address);
+
+        return parameterList.get(key);
+    }
+    console.log(getParameter("nombres"));
+    console.log(getParameter("apellidos"));
+    console.log(getParameter("email"));
+    console.log(getParameter("fecha_nacimiento"));
+    console.log(getParameter("telefono"));
+    console.log(getParameter("usuario"));
+    console.log(getParameter("contra1"));
+    console.log(getParameter("contra2"));
+
+    var nombre= getParameter("nombres");
+    var apellidos= getParameter("apellidos");
+    var email= getParameter("email");
+    var naci= getParameter("fecha_nacimiento");
+    var telefono= getParameter("telefono");
+    var usuario= getParameter("usuario");
+    var contra= getParameter("contra1");
+    var vContra= getParameter("contra2");
+    
+    if(getParameter("nombres")!=null){
+        document.getElementById("Nombres").innerHTML = "Nombres: "+ nombre;      
+    }
+    
+    if(getParameter("apellidos")!=null){
+        document.getElementById("Apellidos").innerHTML = "Apellidos: "+ apellidos;      
+    }
+
+    if(getParameter("email")!=null){
+        document.getElementById("Email").href = "mailto:"+ email;
+        document.getElementById("Email").innerHTML = ""+ email;    
+    }
+
+    if(getParameter("telefono")!=null){
+        document.getElementById("Telefono").href = "tel:"+ telefono;  
+        document.getElementById("Telefono").innerHTML = ""+ telefono;    
+    }
+    
+    if(contra.length>5){
+        document.getElementById("contra").innerHTML = "Tu contraseña si es segura"
+    }else{
+        document.getElementById("contra").innerHTML = "Tu contraseña no es segura"
+    }
+    var edad=0;
+    var anio= naci.substring(0,4);
+    anio= parseInt(anio,10);
+    if(anio<2023){
+        edad=2023-anio;
+        document.getElementById("anios").innerHTML = "Tu edad es: "+ edad;
+    }else{
+        document.getElementById("anios").innerHTML = "No puedes nacer en año mayor al actual";
+    }
+</script>
