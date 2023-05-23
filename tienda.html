@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title><Page Title></title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <!--Ola we-->
+    <form action="#" method="get">
+        <label>Nombre:</label><input type="text" name="nombre" value="Oooo"><br>
+        <label>Codigo:</label><input type="text" name="codigo" onchange="funcion()"><br>
+        <label>Precio:</label><input type="number" name="precio"><br>
+        <label>Unidades de Inventario:</label><input type="number" name="unidades"><br>
+        <label>Descripción:</label><input type="text" name="descripcion"><br>
+        <input type="submit" value="Registrar producto">
+    </form>
+    <h1 id="mensaje"></h1>
+</body>
+</html>
+
+<script>
+    getParameter=(key)=>{
+        address= window.location.search;
+
+        parameterList = new URLSearchParams(address);
+
+        return parameterList.get(key);
+    }
+    console.log(getParameter("nombre"));
+    var nombre= getParameter("nombre");
+
+    
+
+    if(getParameter("nombre")!=null){
+        document.getElementById("mensaje").innerHTML = "Bienvenido/a "+ nombre;
+    }
+
+    function funcion(){
+        alert("Se cambio el input: ");
+    }
+</script>
