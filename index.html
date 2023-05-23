@@ -95,8 +95,8 @@
         </tr>
         <tr>
           <td bgcolor="white" align="center" colspan="3">
-            <button onclick="before()"><--</button>
-            <button onclick="next()">--></button>
+            <button onclick="before()">Atras</button>
+            <button onclick="next()">Siguiente</button>
           </td>
         </tr>
         <tr align="center" bgcolor="white">
@@ -179,14 +179,27 @@
       var cont=0;
 
       function next(){
-        
         var arreglo=["images/1.jpg","images/2.jpg","images/3.jpg","images/4.jpg","images/5.jpg"];
-        let imagen=document.getElementById("img2");
-        imagen.src=arreglo[cont];
-        cont=cont+1;
+        var imagen=document.getElementById("img2");
+                
         if(cont==4){
           cont=0;
+        }else{
+          cont=cont+1;
         }
+        imagen.src=arreglo[cont];
+      }
+
+      function before(){
+        var arreglo=["images/1.jpg","images/2.jpg","images/3.jpg","images/4.jpg","images/5.jpg"];
+        var imagen=document.getElementById("img2");
+               
+        if(cont==0){
+          cont=4;
+        }else{
+          cont=cont-1;
+        }
+        imagen.src=arreglo[cont]; 
       }
   
     </script>
